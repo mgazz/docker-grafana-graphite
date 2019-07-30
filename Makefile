@@ -17,7 +17,10 @@ prep :
 pull :
 	docker-compose pull
 
-up : prep pull
+build:
+	docker build  -t visualizer -f Dockerfile.updated .
+
+up : prep build
 	docker-compose up -d
 
 down :
@@ -28,3 +31,5 @@ shell :
 
 tail :
 	docker logs -f $(CONTAINER)
+
+

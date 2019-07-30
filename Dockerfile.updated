@@ -1,0 +1,5 @@
+FROM kamon/grafana_graphite
+
+ADD     ./graphite/storage-schemas.conf /opt/graphite/conf/storage-schemas.conf
+
+CMD     ["/usr/bin/supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]
